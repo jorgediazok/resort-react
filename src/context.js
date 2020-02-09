@@ -13,8 +13,15 @@ class RoomProvider extends Component {
 
   //getData
   componentDidMount() {
+    //Data
     let rooms = this.formatData(items);
-    console.log(rooms);
+    let featuredRooms = rooms.filter(room => room.featured === true);
+    this.setState({
+      rooms,
+      featuredRooms,
+      sortedRooms: rooms,
+      loading: false
+    });
   }
 
   formatData(items) {
